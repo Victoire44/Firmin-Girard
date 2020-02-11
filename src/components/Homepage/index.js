@@ -17,17 +17,13 @@ const useStyles = makeStyles({
         top: 0,
         left: 0,
         zIndex: 9998,
-        transition: "transform 1s",
-        "&:hover": {
-            transform: "translate(60px, 60px)"
-        }
+        // transition: "transform 1s",
+        // "&:hover": {
+        //     transform: "translate(60px, 60px)"
+        // }
     },
     block: {
-        display: "block",
-        transition: "transform 1s",
-        "&:hover": {
-            transform: "translate(60px, 60px)"
-        }
+        transitionDelay: "1000ms"
     },
     market: {
         height: "300px",
@@ -70,8 +66,17 @@ const useStyles = makeStyles({
 export default function Header() {
     const classes = useStyles();
 
+    const handleMouseMove = e => {
+        const reducer = 10
+        const x = (((e.target.offsetWidth / 2) - e.nativeEvent.offsetX)) / reducer
+        const y = (((e.target.offsetHeight / 2) - e.nativeEvent.offsetY)) / reducer
+        
+        e.target.style.transition = "transform 1000ms";
+        e.target.style.transform = `translate(${x}px, ${y}px)`;
+    }
+
     return (
-        <div className={classes.background}>
+        <div className={classes.background} onMouseMove={handleMouseMove}>
             <div className={classes.block}>
                 <img src={market} alt="Market" className={classes.market} />
             </div>
