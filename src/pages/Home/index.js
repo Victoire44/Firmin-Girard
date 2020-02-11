@@ -1,13 +1,12 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/";
 import market from "./assets/market.jpg";
+import path from "./assets/path.jpg";
 import pigalle from "./assets/pigalle.jpg";
 import pasture from "./assets/pasture.JPG";
 import portrait from "./assets/portrait.jpg";
 import godmother from "./assets/godmother.jpg";
 import farm from "./assets/farm.jpg";
-
-
 
 const useStyles = makeStyles({
     background: {
@@ -25,10 +24,10 @@ const useStyles = makeStyles({
     block: {
         transitionDelay: "1000ms"
     },
-    market: {
+    path: {
         height: "300px",
         position: "absolute",
-        top: "62px",
+        top: "100px",
         left: "22px",
     },
     pigalle: {
@@ -63,37 +62,39 @@ const useStyles = makeStyles({
     }
 })
 
-export default function Header() {
+export default function Home() {
     const classes = useStyles();
 
     const handleMouseMove = e => {
         const reducer = 10
         const x = (((e.target.offsetWidth / 2) - e.nativeEvent.offsetX)) / reducer
         const y = (((e.target.offsetHeight / 2) - e.nativeEvent.offsetY)) / reducer
-        
+
         e.target.style.transition = "transform 1000ms";
         e.target.style.transform = `translate(${x}px, ${y}px)`;
     }
 
     return (
-        <div className={classes.background} onMouseMove={handleMouseMove}>
-            <div className={classes.block}>
-                <img src={market} alt="Market" className={classes.market} />
-            </div>
-            <div className={classes.block}>
-                <img src={pigalle} alt="Pigalle" className={classes.pigalle} />
-            </div>
-            <div className={classes.block}>
-                <img src={pasture} alt="Pasture" className={classes.pasture} />
-            </div>
-            <div className={classes.block}>
-                <img src={godmother} alt="Godmother" className={classes.godmother} />
-            </div>
-            <div className={classes.block}>
-                <img src={portrait} alt="Portrait" className={classes.portrait} />
-            </div>
-            <div className={classes.block}>
-                <img src={farm} alt="Farm" className={classes.farm} />
+        <div>
+            <div className={classes.background} onMouseMove={handleMouseMove}>
+                <div className={classes.block}>
+                    <img src={path} alt="Market" className={classes.path} />
+                </div>
+                <div className={classes.block}>
+                    <img src={pigalle} alt="Pigalle" className={classes.pigalle} />
+                </div>
+                <div className={classes.block}>
+                    <img src={pasture} alt="Pasture" className={classes.pasture} />
+                </div>
+                <div className={classes.block}>
+                    <img src={godmother} alt="Godmother" className={classes.godmother} />
+                </div>
+                <div className={classes.block}>
+                    <img src={portrait} alt="Portrait" className={classes.portrait} />
+                </div>
+                <div className={classes.block}>
+                    <img src={farm} alt="Farm" className={classes.farm} />
+                </div>
             </div>
         </div>
     )
