@@ -63,11 +63,12 @@ export default function Nav() {
             <Popper open={open} anchorEl={anchorRef.current} role={undefined} transition disablePortal placement="bottom-start">
                 <ClickAwayListener onClickAway={handleClose}>
                     <MenuList autoFocusItem={open} id="menu-list-grow">
-                        <Link to="/Introduction" isActive={() => window.location.pathname === '/'}
->
+                        <Link to="/Introduction" isActive={() => window.location.pathname === '/'}>
                         <MenuItem onClick={handleClose} className={classes.menuItems}>Introduction</MenuItem>
                         </Link>
-                        <MenuItem onClick={handleClose} className={classes.menuItems}>biographie</MenuItem>
+                        <Link to="/Biographie" isActive={() => window.location.pathname === '/'}>
+                        <MenuItem onClick={handleClose} className={classes.menuItems}>Biographie</MenuItem>
+                        </Link>
                         <MenuItem onClick={handleClose} className={classes.menuItems}>Actualités</MenuItem>
                         <MenuItem onClick={handleClose} className={classes.menuItems}>contact</MenuItem>
                     </MenuList>

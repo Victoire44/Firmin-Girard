@@ -16,10 +16,6 @@ const useStyles = makeStyles({
         top: 0,
         left: 0,
         zIndex: 9998,
-        // transition: "transform 1s",
-        // "&:hover": {
-        //     transform: "translate(60px, 60px)"
-        // }
     },
     block: {
         transitionDelay: "1000ms"
