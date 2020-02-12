@@ -11,15 +11,16 @@ const useStyles = makeStyles({
         display: "flex",
         flexDirection: "row",
         top: 200,
-        left: 20
+        left: 30
     },
     text: {
         display: "block",
         height: "500px",
         color: "white",
-        padding: "0 20px",
+        padding: "0 30px",
         textAlign: "justify",
         columnWidth: "300px",
+        lineHeight: "1.7"
     },
     image: {
         height: "500px"

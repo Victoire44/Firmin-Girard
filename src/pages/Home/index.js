@@ -36,7 +36,7 @@ const useStyles = makeStyles({
         height: "250px",
         position: "absolute",
         top: "100px",
-        left: "900px",
+        left: "1100px",
     },
     godmother: {
         height: "400px",
@@ -55,6 +55,14 @@ const useStyles = makeStyles({
         position: "absolute",
         top: "500px",
         left: "650px",
+        zindex: 1
+    },
+    market: {
+        height: "500px",
+        position: "absolute",
+        top: "800px",
+        left: "850px",
+        zindex: 2
     }
 })
 
@@ -90,6 +98,9 @@ export default function Home() {
                 </div>
                 <div className={classes.block}>
                     <img src={farm} alt="Farm" className={classes.farm} />
+                </div>
+                <div className={classes.block}>
+                    <img src={market} alt="Market" className={classes.market} />
                 </div>
             </div>
         </div>

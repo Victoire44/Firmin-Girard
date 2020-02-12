@@ -3,7 +3,7 @@ import { makeStyles } from "@material-ui/core/";
 import Button from '@material-ui/core/Button';
 import ClickAwayListener from '@material-ui/core/ClickAwayListener';
 import Popper from '@material-ui/core/Popper';
-import {Menu, MenuItem} from '@material-ui/core';
+import { MenuItem } from '@material-ui/core';
 import MenuList from '@material-ui/core/MenuList';
 import { Link } from 'react-router-dom';
 
@@ -63,14 +63,21 @@ export default function Nav() {
             <Popper open={open} anchorEl={anchorRef.current} role={undefined} transition disablePortal placement="bottom-start">
                 <ClickAwayListener onClickAway={handleClose}>
                     <MenuList autoFocusItem={open} id="menu-list-grow">
-                        <Link to="/Introduction" isActive={() => window.location.pathname === '/'}>
-                        <MenuItem onClick={handleClose} className={classes.menuItems}>Introduction</MenuItem>
+                        <Link to="/" isActive={() => window.location.pathname === '/'}>
+                            <MenuItem onClick={handleClose} className={classes.menuItems}>Home</MenuItem>
                         </Link>
-                        <Link to="/Biographie" isActive={() => window.location.pathname === '/'}>
-                        <MenuItem onClick={handleClose} className={classes.menuItems}>Biographie</MenuItem>
+                        <Link to="/introduction" isActive={() => window.location.pathname === '/introduction'}>
+                            <MenuItem onClick={handleClose} className={classes.menuItems}>Introduction</MenuItem>
                         </Link>
-                        <MenuItem onClick={handleClose} className={classes.menuItems}>Actualités</MenuItem>
-                        <MenuItem onClick={handleClose} className={classes.menuItems}>contact</MenuItem>
+                        <Link to="/biographie" isActive={() => window.location.pathname === '/biographie'}>
+                            <MenuItem onClick={handleClose} className={classes.menuItems}>Biographie</MenuItem>
+                        </Link>
+                        <Link to="/actualites" isActive={() => window.location.pathname === '/actualites'}>
+                            <MenuItem onClick={handleClose} className={classes.menuItems}>Actualités</MenuItem>
+                        </Link>
+                        <Link to="/contact" isActive={() => window.location.pathname === '/contact'}>
+                            <MenuItem onClick={handleClose} className={classes.menuItems}>contact</MenuItem>
+                        </Link>
                     </MenuList>
                 </ClickAwayListener>
             </Popper>
