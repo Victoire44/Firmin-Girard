@@ -14,72 +14,57 @@ const useStyles = makeStyles({
         left: "30px",
         zIndex: "9999",
         "& .MuiButtonBase-root": {
-            paddingLeft: 0
+            color: "white",
+            paddingLeft: "0",
+            fontSize: "25px",
+            fontWeight: "bold",
+        },
+        " & .MuiList-root a": {
+            textDecoration: "none",
         },
         "& .MuiButton-label": {
             color: "white",
             fontWeight: "bold",
             fontSize: "40px",
             paddingLeft: 0
-        }
+        },
     },
-    menuItems: {
-        color: "white",
-        paddingLeft: "0",
-        fontSize: "25px",
-        fontWeight: "bold",
-
-
-    }
 })
 
 export default function Nav() {
     const classes = useStyles();
     const [open, setOpen] = React.useState(false);
     const anchorRef = React.useRef(null);
-
-    const handleToggle = () => {
-        setOpen(prevOpen => !prevOpen);
-    };
-
-    const handleClose = event => {
-        if (anchorRef.current && anchorRef.current.contains(event.target)) {
-            return;
-        }
-        setOpen(false);
-    };
+    
+    const handleClick = () => setOpen(true);
+    const handleClose = () => setOpen(false);
 
     return (
-        <div className={classes.wrapper}>
-            <Button
-                className={classes.menu}
-                ref={anchorRef}
-                aria-controls={open ? 'menu-list-grow' : undefined}
-                aria-haspopup="true"
-                onClick={handleToggle}
-            >
-                Firmin-Girard
+        <div className={classes.wrapper} onMouseEnter={handleClick} onMouseLeave={handleClose} >
+            <Link to="/" isActive={() => window.location.pathname === '/'} style={{ textDecoration: "none" }}>
+                <Button
+                    ref={anchorRef}
+                    aria-controls={open ? 'menu-list-grow' : undefined}
+                    aria-haspopup="true"
+                >
+                    Firmin-Girard
             </Button>
+            </Link>
             <Popper open={open} anchorEl={anchorRef.current} role={undefined} transition disablePortal placement="bottom-start">
-                <ClickAwayListener onClickAway={handleClose}>
                     <MenuList autoFocusItem={open} id="menu-list-grow">
-                        <Link to="/" isActive={() => window.location.pathname === '/'}>
-                            <MenuItem onClick={handleClose} className={classes.menuItems}>Home</MenuItem>
-                        </Link>
-                        <Link to="/introduction" isActive={() => window.location.pathname === '/introduction'}>
-                            <MenuItem onClick={handleClose} className={classes.menuItems}>Introduction</MenuItem>
+                        <Link to="/introduction" isActive={() => window.location.pathname === '/introduction'} onMouseEnter={handleClick}>
+                            <MenuItem>Introduction</MenuItem>
                         </Link>
                         <Link to="/biographie" isActive={() => window.location.pathname === '/biographie'}>
-                            <MenuItem onClick={handleClose} className={classes.menuItems}>Biographie</MenuItem>
+                            <MenuItem>Biographie</MenuItem>
                         </Link>
                         <Link to="/actualites" isActive={() => window.location.pathname === '/actualites'}>
-                            <MenuItem onClick={handleClose} className={classes.menuItems}>Actualités</MenuItem>
+                            <MenuItem>Actualités</MenuItem>
                         </Link>
                         <Link to="/contact" isActive={() => window.location.pathname === '/contact'}>
-                            <MenuItem onClick={handleClose} className={classes.menuItems}>contact</MenuItem>
+                            <MenuItem>Contact</MenuItem>
                         </Link>
                     </MenuList>
-                </ClickAwayListener>
             </Popper>
         </div>
     )
