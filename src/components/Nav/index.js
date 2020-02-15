@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles({
     wrapper: {
-        position: "absolute",
+        position: "fixed",
         top: "30px",
         left: "30px",
         zIndex: "9999",
