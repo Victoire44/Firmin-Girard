@@ -11,13 +11,6 @@ const useStyles = makeStyles({
 })
 
 export default function CanvasScroll(props) {
-    props.children.forEach(child =>
-        console.assert(
-          child.type.name === "CanvasItem",
-          "CanvasScroll can only have CanvasItem component as children."
-        )
-    )
-
     const classes = useStyles();
 
     const wrapperRef = React.useRef()
@@ -67,9 +60,10 @@ export default function CanvasScroll(props) {
         <div ref={wrapperRef} className={classes.wrapper} onMouseMove={recordMousePosition}>
             {props.children.map((child, i) => {
                 const offsetMultiplier = child.props.zIndex / 10
+                const config = {stiffness: 100, damping: 30}
                 const translateCoordinates = {
-                    x: spring(translateX + offsetX * offsetMultiplier),
-                    y: translateY + offsetY * offsetMultiplier
+                    x: spring(translateX + offsetX * offsetMultiplier, config),
+                    y: spring(translateY + offsetY * offsetMultiplier, config)
                 }
                 return <Motion key={i} style={translateCoordinates}>
                     { ({x, y}) => React.cloneElement(child, {style: {transform: `translate3d(${x}px, ${y}px, 0)`}}) }

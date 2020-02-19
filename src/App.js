@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as HashRouter, Route } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import Nav from "./components/Nav";
 import Home from "./pages/Home";
@@ -9,7 +9,7 @@ import Actualites from "./pages/Actualites";
 
 function App() {
   return (
-    <Router>
+    <HashRouter basename="firmin-girard">
     <div className="App">
       <Helmet>
         <title>Firmin Girard</title>
@@ -21,7 +21,7 @@ function App() {
       <Route exact path="/biographie" component={Biographie} />
       <Route exact path="/actualites" component={Actualites} />
     </div>
-    </Router>
+    </HashRouter>
   );
 }
 
