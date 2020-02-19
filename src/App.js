@@ -5,7 +5,6 @@ import Nav from "./components/Nav";
 import Home from "./pages/Home";
 import Introduction from "./pages/Introduction";
 import Biographie from "./pages/Biographie";
-import Contact from "./pages/Contact";
 import Actualites from "./pages/Actualites";
 
 function App() {
@@ -21,7 +20,6 @@ function App() {
       <Route exact path="/introduction" component={Introduction} />
       <Route exact path="/biographie" component={Biographie} />
       <Route exact path="/actualites" component={Actualites} />
-      <Route exact path="/contact" component={Contact} />
     </div>
     </Router>
   );

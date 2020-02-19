@@ -49,6 +49,7 @@ export default function Nav() {
                     ref={anchorRef}
                     aria-controls={open ? 'menu-list-grow' : undefined}
                     aria-haspopup="true"
+                    onClick={handleClose}
                 >
                     Firmin-Girard
             </Button>
@@ -63,9 +64,6 @@ export default function Nav() {
                     </Link>
                     <Link to="/actualites" isActive={() => window.location.pathname === '/actualites'}>
                         <MenuItem>Actualités</MenuItem>
-                    </Link>
-                    <Link to="/contact" isActive={() => window.location.pathname === '/contact'}>
-                        <MenuItem>Contact</MenuItem>
                     </Link>
                 </MenuList>
             </Popper>
