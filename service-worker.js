@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/firmin-girard/precache-manifest.3c9467f39ea253ed409e9801903f8ef7.js"
+  "/firmin-girard/precache-manifest.7937281e5dc7a3fc587371e4374d9feb.js"
 );
 
 self.addEventListener('message', (event) => {
